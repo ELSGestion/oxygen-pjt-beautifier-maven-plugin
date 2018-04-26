@@ -7,7 +7,7 @@
 
     <groupId>top.marchand.xml.maven</groupId>
     <artifactId>oxygen-pjt-beautifier-maven-plugin</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
     <name>oxygen-pjt-beautifier-maven-plugin Mojo</name>
@@ -45,6 +45,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <saxon.version>9.7.0-15</saxon.version>
     </properties>
     
     <dependencies>
@@ -93,7 +94,7 @@
         <dependency>
             <groupId>net.sf.saxon</groupId>
             <artifactId>Saxon-HE</artifactId>
-            <version>9.7.0-15</version>
+            <version>${saxon.version}</version>
         </dependency>
     </dependencies>
  
@@ -109,6 +110,12 @@
     </distributionManagement>
  
     <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/xsl</directory>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -174,6 +181,18 @@
                     <artifactId>nexus-staging-maven-plugin</artifactId>
                     <version>1.6.8</version>
                 </plugin>
+                <plugin>
+                    <groupId>io.xspec.maven</groupId>
+                    <artifactId>xspec-maven-plugin</artifactId>
+                    <version>2.0.0-RC3</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>net.sf.saxon</groupId>
+                            <artifactId>Saxon-HE</artifactId>
+                            <version>${saxon.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -217,6 +236,16 @@
                 <configuration>
                     <failOnError>false</failOnError>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.xspec.maven</groupId>
+                <artifactId>xspec-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals><goal>run-xspec</goal></goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
