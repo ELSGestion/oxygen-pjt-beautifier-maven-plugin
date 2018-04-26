@@ -8,7 +8,7 @@ Just add this plugin to your pom.xml :
       <plugin>
         <groupId>top.marchand.xml.maven</groupId>
         <artifactId>oxygen-pjt-beautifier-maven-plugin</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <executions>
           <execution>
             <goals><goal>beautify</goal></goals>

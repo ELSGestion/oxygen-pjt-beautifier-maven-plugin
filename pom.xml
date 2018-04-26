@@ -7,7 +7,7 @@
 
     <groupId>top.marchand.xml.maven</groupId>
     <artifactId>oxygen-pjt-beautifier-maven-plugin</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <packaging>maven-plugin</packaging>
 
     <name>oxygen-pjt-beautifier-maven-plugin Mojo</name>
