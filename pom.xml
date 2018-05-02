@@ -7,7 +7,7 @@
 
     <groupId>top.marchand.xml.maven</groupId>
     <artifactId>oxygen-pjt-beautifier-maven-plugin</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
     <name>oxygen-pjt-beautifier-maven-plugin Mojo</name>
@@ -38,7 +38,7 @@
         </developer>
         <developer>
             <name>Frédéric Lanic</name>
-            <email>f.lanic-ext@lefebvre-sarrut.eu</email>
+            <email>f.lanic@kycox.fr</email>
             <timezone>GMT+1</timezone>
         </developer>
     </developers>
